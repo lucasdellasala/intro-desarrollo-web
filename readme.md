@@ -1,1 +1,16 @@
+# CURSO INTENSIVO DE INTRODUCCIÓN AL DESARROLLO WEB
+
+Esta es la documentación oficial de las clases del [**Curso Intensivo de Introducción al Desarrollo Web**](https://www.instagram.com/p/CPZXQnFg4n6/). El objetivo del mismo es presentar los contenidos mínimos para emprender un aprendizaje de manera autodidacta. Utilizaremos referencias a sitios cómo [W3Schools](https://www.w3schools.com/js/) y [Developer Mozilla](https://developer.mozilla.org/es/docs/Web/JavaScript) para consultar documentación específica y también a videos de YouTube.
+
+| Clase   | Contenido  | Link |
+| -------- | ------------------------ | ----------|
+| **0**     |    ¿Qué es un dato? ¿Qué diferencia hay con la información? Tipos de datos. Variables y tipos de variables. Pensamiento computacional. ¿Qué es un algoritmo? Instrucciones no ambiguas. Estructuras de control (if, switch/case) y estructuras de control iterativas (while, for). |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-00.md)|                                                                                
+| **1** | Operadores aritméticos. Operadores de asignación. Operadores comparativos. Operadores lógicos. Funciones. Parámetros de funciones. Scope de variables.|[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md)|
+| **2**   |    Programación orientada a objetos.                                                                                                         |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-02.md)|
+| **3**   |      Programación orientada a objetos: clases, herencias, objetos, métodos, eventos y propiedades. Encapsulamiento. Polimorfismo. Modularidad.                                                                                                      |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-03.md)|
+| **4**       |   HTML y CSS. Manipulación del DOM con Javascript Vanilla. Eventos.                                                                                      |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-04.md)|
+| **5**   | Concepto de cliente-servidor. Eficiencia en la transferencia de datos. Protocolo HTTP. Consumo de datos de una api REST desde un front end hecho en Javascript Vanilla.                                                       |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-05.md)|
+| **6**  |  ¿Por qué hacemos front end con frameworks? Consumo de datos de una api REST desde un front hecho con React y Hooks. Estados, props, render, DOM virtual, useState y useEffect.                    |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-06.md)|                                         
+| **7** | NODE.js. NPM y paquetes de código. ¿Cómo armar un servidor HTTP con express? Endpoints. Modelo router-controller. |[**Click aquí**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-07.md)|   
+
 # 🚧🚧 SECCIÓN EN CONSTRUCCIÓN 🚧🚧
