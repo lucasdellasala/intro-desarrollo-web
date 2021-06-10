@@ -1,4 +1,4 @@
-# CURSO INTENSIVO DE INTRODUCCIÓN AL DESARROLLO WEB
+# INTRODUCCIÓN AL DESARROLLO WEB
 
 Esta es la documentación oficial de las clases del [**Curso Intensivo de Introducción al Desarrollo Web**](https://www.instagram.com/p/CPZXQnFg4n6/). El objetivo del mismo es presentar los contenidos mínimos para emprender un aprendizaje de manera autodidacta. Utilizaremos referencias a sitios cómo [W3Schools](https://www.w3schools.com/js/) y [Developer Mozilla](https://developer.mozilla.org/es/docs/Web/JavaScript) para consultar documentación específica y también a videos de YouTube.
 
