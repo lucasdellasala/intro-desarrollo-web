@@ -16,7 +16,8 @@ Las instrucciones las debemos expresar de una manera **no ambigua** para evitar 
 
 ### ¿Qué es un dato?
 Un dato es una representación simbólica (numérica, alfabética, algorítmica, espacial, etc.) de un atributo o variable cuantitativa o cualitativa. Los datos describen hechos empíricos, sucesos y entidades. Es un valor o referente que recibe el computador por diferentes medios, los datos representan la información que el programador manipula en la construcción de una solución o en el desarrollo de un algoritmo.
-![Meme de que buen dato rey](https://cdn.memegenerator.es/descargar/31789354)
+
+![Meme de que buen dato rey](https://cdn.memegenerator.es/imagenes/memes/full/31/78/31789354.jpg)
 
 ### ¿Y la información?
 Información es el nombre por el que se conoce un conjunto organizado de datos procesados que constituyen un mensaje que cambia el estado de conocimiento del sujeto o sistema que recibe dicho mensaje.
@@ -25,6 +26,7 @@ Información es el nombre por el que se conoce un conjunto organizado de datos p
 Una variable es un **espacio de memoria** donde puede haber un **valor definido o indefinido**. Se asigna un espacio de memoria al crear una variable y el nombre de esta queda asociada a esa dirección. 
 
 Una analogía **muy común** es la de un depósito donde hay cajas. Y en lugar de usarla cómo se utiliza siempre vamos a utilizar la analogía... del depósito de cajas *(maldita sea, la TV arruinó mi imaginación).*
+
 ![gif de la fábrica de cajas - los simpsons](https://media3.giphy.com/media/26tk1FQLNF3NKOAZW/giphy.gif?cid=ecf05e475wsfxndzsi8ks3ee93yrbf895sm3mpwynpr36ty0&rid=giphy.gif&ct=g)
 
 Crear una variable con el valor "JRR🔟" en nuestra ambiciosa analogía equivaldría a escribir en una hoja de papel ese texto y colocarlo dentro de una caja, el nombre de la variable elegida sería, por ejemplo, **elUltimoDiez**, y esta caja con ese nombre la guardaríamos en una estantería debidamente tabulada en el almacén de la fábrica.
