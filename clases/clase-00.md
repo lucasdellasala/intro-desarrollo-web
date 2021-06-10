@@ -40,20 +40,53 @@ Bueno, hay distintos tipos de variables, algunos primitivos y otros compuestos.
 
  - [**Undefined**](https://www.w3schools.com/js/js_datatypes.asp)
 	 - Cuando definimos una variable sin expresar su valor, Javascript le asigna el tipo *undefined* (indefinido).
+	>     let indefinida
+	>     console.log(indefinida)
  - [**Null**](https://www.w3schools.com/js/js_datatypes.asp)
 	 - Ahora, cuando queremos definir una variable con un valor nulo de manera intencional y explícita, podemos utilizar el tipo *null*.
+ 	>     let variableNula = null
+	>     console.log(variableNula)
  - [**Number**](https://www.w3schools.com/js/js_numbers.asp)
 	 - Podemos querer también expresar cantidades numéricas. Javascript lo hace simple, enteros, decimales, positivos o negativos. Todos son tipo *number* - *(otros lenguajes utilizan el float, y los int de distintos números de bits).*
+ 	>     let saldoEnElHomeBanking = 206
+	>     console.log(saldoEnElHomeBanking)
+ 	>     let algunNumeroNegativo = -1021
+	>     console.log(algunNumeroNegativo)
+ 	>     let numeroDecimal = 3.14
+	>     console.log(numeroDecimal)
  - [**String**](https://www.w3schools.com/js/js_strings.asp)
 	 - Es el tipo de dato de toda cadena ordenada de [caracteres](https://es.wikipedia.org/wiki/Car%C3%A1cter_%28tipo_de_dato%29), es decir, puede incluir caracteres especiales, números y letras.
+ 	>     let nombre = "Lucas"
+	>     console.log(nombre)
+ 	>     let puedeSerUnEspacio= " "
+	>     console.log(puedeSerUnEspacio)
+ 	>     let puedeSerNumerico = "1406"
+	>     console.log(puedeSerNumerico )
+ 	>     let oPuedeSerVacio= ""
+	>     console.log(oPuedeSerVacio)
  - [**Boolean**](https://www.w3schools.com/js/js_booleans.asp)
 	 - Ni si, ni no, ni blanco, ni negro. Los datos booleanos (en honor a George Boole) son datos lógicos que solamente pueden ser **verdadero** o **falso**.
+ 	>     let esMayorDeEdad = true
+	>     console.log(esMayorDeEdad)
+ 	>     let esMillonario = false
+	>     console.log(esMillonario)
  - [**Array**](https://www.w3schools.com/js/js_arrays.asp)
 	- Los *arrays* son listas ordenadas de elementos. Estos elementos pueden ser cualquier tipo de dato (incluso otros arrays). Los elementos tienen [posiciones ordinales](https://es.wikipedia.org/wiki/N%C3%BAmero_ordinal_%28matem%C3%A1ticas%29#:~:text=En%20matem%C3%A1ticas,%20un%20ordinal%20es,perteneciente%20a%20una%20sucesi%C3%B3n%20ordenada.&text=En%20este%20sentido,%20es%20aquel,apocopado%20%28%22primer%22%29.) o índices que se comienzan a contar desde el número **0**.
+ 	>     let letrasDeMiNombre = ["L", "U", "C", "A", "S"]
+	>     console.log(letrasDeMiNombre)
+	>     //Me dice el largo de la lista
+	>     console.log(letrasDeMiNombre.length) 
+	>     // Me dice cual es la primera letra de mi nombre
+	>     console.log(letrasDeMiNombre[0]) 
+	>     // Me dice cual es la ultima letra de mi nombre
+	>     console.log(letrasDeMiNombre[(letrasDeMiNombre.length - 1)])  	
+	>     let numeros = [1,2,3,4,5]
+	>     // Si quiero acceder al número 3 tengo que indicar el índice [2]
+	>     console.log(numeros[2]) //Me devuelve el número 3
 
-También existen los **objetos** pero prefiero esperar a la [**CLASE-02**](https://github.com/lucasdellasala/intro-desarrollo-web/blob/main/clases/clase-02.md) para explicarlos con la profundidad que se merecen.
+También existen los **objetos** pero prefiero esperar a la [**CLASE-02**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-02.md) para explicarlos con la profundidad que se merecen.
 
-[**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/intro-desarrollo-web/blob/main/clases/clase-01.md) ||
-[**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/intro-desarrollo-web)
+[**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md) ||
+[**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/curso-intensivo)
 
 # 🚧🚧 SECCIÓN EN CONSTRUCCIÓN 🚧🚧
