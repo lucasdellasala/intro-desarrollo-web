@@ -7,6 +7,6 @@ En matemáticas, lógica, ciencias de la computación y disciplinas relacionadas
 
 Un programa implica “un poco” más que un algoritmo, pero sería su [**digievolución**](https://www.youtube.com/watch?v=6oHYgG5DFSM) teniendo en cuenta otros aspectos como la usabilidad, la experiencia del usuario, la concentración de varios algoritmos para solucionar varios problemas y sus posibles combinaciones.
 
-[**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md)
+[**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md) ||
 [**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/curso-intensivo)
 # 🚧🚧 SECCIÓN EN CONSTRUCCIÓN 🚧🚧
