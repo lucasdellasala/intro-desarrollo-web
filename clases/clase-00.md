@@ -86,6 +86,33 @@ Bueno, hay distintos tipos de variables, algunos primitivos y otros compuestos.
 
 También existen los **objetos** pero prefiero esperar a la [**CLASE-02**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-02.md) para explicarlos con la profundidad que se merecen.
 
+## Estructuras de control e iteración
+
+### If... else
+La instrucción **if** ejecuta una instrucción si una **condición** especificada es **verdadera**. Si la **condición** es **falsa**, se puede ejecutar otra instrucción.
+
+>     let a = 2 // podes cambiar el valor de a y probar el código
+>     let resultado
+>     if (a > 0) {
+>       resultado = "positivo"
+>     } else {
+>       resultado = "no positivo"
+>     }
+>     console.log(resultado)
+
+A veces podemos querer separar el grupo de posibilidades de nuestro algoritmo en **más de dos grupos o casuísticas**. En ese caso podemos usar la instrucción **else if**.
+>     let a = 2 // podes cambiar el valor de a y probar el código
+>     let resultado
+>     if (a > 0) {
+>       resultado = "positivo"
+>     } else if (a < 0) {
+>       resultado = "negativo"
+>     } else {
+>       resultado = "cero"
+>     }
+>     console.log(resultado)
+
+
 [**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md) ||
 [**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/curso-intensivo)
 
