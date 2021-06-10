@@ -51,9 +51,9 @@ Bueno, hay distintos tipos de variables, algunos primitivos y otros compuestos.
  - [**Array**](https://www.w3schools.com/js/js_arrays.asp)
 	- Los *arrays* son listas ordenadas de elementos. Estos elementos pueden ser cualquier tipo de dato (incluso otros arrays). Los elementos tienen [posiciones ordinales](https://es.wikipedia.org/wiki/N%C3%BAmero_ordinal_%28matem%C3%A1ticas%29#:~:text=En%20matem%C3%A1ticas,%20un%20ordinal%20es,perteneciente%20a%20una%20sucesi%C3%B3n%20ordenada.&text=En%20este%20sentido,%20es%20aquel,apocopado%20%28%22primer%22%29.) o índices que se comienzan a contar desde el número **0**.
 
-También existen los **objetos** pero prefiero esperar a la [**CLASE-02**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-02.md) para explicarlos con la profundidad que se merecen.
+También existen los **objetos** pero prefiero esperar a la [**CLASE-02**](https://github.com/lucasdellasala/intro-desarrollo-web/blob/main/clases/clase-02.md) para explicarlos con la profundidad que se merecen.
 
-[**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md) ||
-[**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/curso-intensivo)
+[**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/intro-desarrollo-web/blob/main/clases/clase-01.md) ||
+[**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/intro-desarrollo-web)
 
 # 🚧🚧 SECCIÓN EN CONSTRUCCIÓN 🚧🚧
