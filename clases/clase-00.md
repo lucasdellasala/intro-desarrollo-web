@@ -112,6 +112,11 @@ A veces podemos querer separar el grupo de posibilidades de nuestro algoritmo en
 >     }
 >     console.log(resultado)
 
+### Switch
+🦺 TODO 🦺
+
+### Bucle FOR
+🦺 TODO 🦺
 
 [**⏩SIGUIENTE⏩**](https://github.com/lucasdellasala/curso-intensivo/blob/main/clases/clase-01.md) ||
 [**⏮VOLVER AL ÍNDICE⏮**](https://github.com/lucasdellasala/curso-intensivo)
