@@ -15,8 +15,8 @@ La programación orientada a objetos difiere de la  [programación estructurada]
 No es la mejor manera si queremos más de un objeto, porque debemos repetir código cada vez que necesitamos instanciar el objeto, si encontramos un error en algún método, hay que modificar el método en todos los objetos. No podemos utilizar la ventaja de la herencia, que es evitar tener que modificar el mismo método en cada objeto.
 
 	const auto = {
-		modelo = "Ferrari"
-		tocarBocina = function () {
+		modelo : "Ferrari",
+		tocarBocina : function () {
 			console.log("PIP PIP")
 		}
 	}
