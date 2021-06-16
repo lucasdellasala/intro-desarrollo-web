@@ -2,19 +2,19 @@
 🦺 TODO 🦺
 ## TEORÍA
 🦺 TODO 🦺
-### Operadores aritméticos
+### [Operadores aritméticos]()
 🦺 TODO 🦺
-### Operadores de asignación
+### [Operadores de asignación]()
 🦺 TODO 🦺
-### Operadores comparativos
+### [Operadores comparativos]()
 🦺 TODO 🦺
-### Operadores lógicos
+### [Operadores lógicos]()
 🦺 TODO 🦺
-### Funciones
+### [Funciones]()
 🦺 TODO 🦺
-### Parámetros de funciones
+### [Parámetros de funciones]()
 🦺 TODO 🦺
-### Scope de variables
+### [Scope de variables]()
 🦺 TODO 🦺
 
 ## EJERCICIOS HACKERRANK

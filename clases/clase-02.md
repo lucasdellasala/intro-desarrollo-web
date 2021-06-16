@@ -58,7 +58,8 @@ Si queremos crear un objeto que herede propiedades y métodos de otro podemos ha
     }
 
     function Uber(modelo, chofer){
-        this.base = new Auto(modelo)
+        this.base = Auto
+        this.base(modelo)
         this.chofer = chofer
         this.cobrar = function () {
             console.log("Viaje cobrado")
