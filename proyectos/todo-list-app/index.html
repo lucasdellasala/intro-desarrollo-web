@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Todo List Manager</title>
+</head>
+
+<body>
+    <nav id="nav">
+        <img src="./img/logo.jpg" style="border-radius: 50%">
+        <h1>Todo List</h1>
+        <input type="search" placeholder="Buscar tareas">
+    </nav>
+
+    <div id="container">
+        <div id="task-card-form">
+            <div id="task-title">
+                <h2>Nueva tarea</h2>
+            </div>
+            <form id="task-form">
+                <div class="task-input">
+                    <label>Nombre</label>
+                    <input name="name" type="text" placeholder="nombre tarea">
+                </div>
+                <div class="task-input">
+                    <label>Urgencia</label>
+                    <select name="urgency">
+                        <option value="low">Baja</option>
+                        <option value="medium">Moderada</option>
+                        <option value="high">Alta</option>
+                    </select>
+                </div>
+                <div class="task-input">
+                    <label>Responsable</label>
+                    <input id="responsable" name="responsable" type="text" placeholder="nombre responsable">
+                </div>
+                <div class="task-input">
+                    <label>Fecha límite</label>
+                    <input name="deadline" type="date">
+                </div>
+                <button type="submit">Crear tarea</button>
+            </form>
+        </div>
+
+        <div id="task-card-list-todo">
+            <h2>TODO</h2>
+            <div class="task-card-list">
+                <div class="task-card">
+                    <h3>Lavar los platos</h3>
+                    <p>Urgencia Baja</p>
+                    <p>Responsable Lucas</p>
+                    <p>Fecha límite: 19/06/2021</p>
+                </div>
+                <div class="task-card">
+                    <h3>Pasear al perro</h3>
+                    <p>Urgencia Moderada</p>
+                    <p>Responsable Martín</p>
+                    <p>Fecha límite: 17/06/2021</p>
+                </div>
+                <div class="task-card">
+                    <h3>Hacer ejercicios Hackerrank</h3>
+                    <p>Urgencia Moderada</p>
+                    <p>Responsable TODXS</p>
+                    <p>Fecha límite: 21/06/2021</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="task-card-list-done">
+            <h2>DONE</h2>
+            <div class="task-card-list">
+                <div class="task-card">
+                    <h3>Saltar la soga</h3>
+                    <p>Urgencia Baja</p>
+                    <p>Responsable Alejo</p>
+                    <p>Fecha límite: 16/06/2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer">
+        <h4>Copyright Lucas Della Sala</h4>
+        <a href="https://www.linkedin.com/in/lucasdellasala/">Contactame</a>
+    </footer>
+</body>
+
+</html>

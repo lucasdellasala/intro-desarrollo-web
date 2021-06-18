@@ -1,0 +1,32 @@
+body {
+    font-family: monospace;
+    background-color:bisque;
+    color:dimgray
+}
+
+a {
+    text-decoration: none;
+    color:indianred
+}
+
+a:hover {
+    color: rgb(255, 0, 0)
+}
+
+#titulo {
+    color:indianred
+}
+
+#hero-img {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 10px solid green
+}
+
+.parrafo {
+    background-color: rgb(248, 210, 163);
+}
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
