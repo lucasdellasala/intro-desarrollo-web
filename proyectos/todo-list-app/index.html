@@ -5,88 +5,85 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css">
     <title>Todo List Manager</title>
+
+    <style>
+        .test {
+            border: 1px solid red;
+        }
+    </style>
 </head>
 
 <body>
-    <nav id="nav">
-        <img src="./img/logo.jpg" style="border-radius: 50%">
-        <h1>Todo List</h1>
-        <input type="search" placeholder="Buscar tareas">
-    </nav>
-
-    <div id="container">
-        <div id="task-card-form">
-            <div id="task-title">
-                <h2>Nueva tarea</h2>
-            </div>
-            <form id="task-form">
-                <div class="task-input">
-                    <label>Nombre</label>
-                    <input name="name" type="text" placeholder="nombre tarea">
-                </div>
-                <div class="task-input">
-                    <label>Urgencia</label>
-                    <select name="urgency">
-                        <option value="low">Baja</option>
-                        <option value="medium">Moderada</option>
-                        <option value="high">Alta</option>
-                    </select>
-                </div>
-                <div class="task-input">
-                    <label>Responsable</label>
-                    <input id="responsable" name="responsable" type="text" placeholder="nombre responsable">
-                </div>
-                <div class="task-input">
-                    <label>Fecha límite</label>
-                    <input name="deadline" type="date">
-                </div>
-                <button type="submit">Crear tarea</button>
-            </form>
-        </div>
-
-        <div id="task-card-list-todo">
-            <h2>TODO</h2>
-            <div class="task-card-list">
-                <div class="task-card">
-                    <h3>Lavar los platos</h3>
-                    <p>Urgencia Baja</p>
-                    <p>Responsable Lucas</p>
-                    <p>Fecha límite: 19/06/2021</p>
-                </div>
-                <div class="task-card">
-                    <h3>Pasear al perro</h3>
-                    <p>Urgencia Moderada</p>
-                    <p>Responsable Martín</p>
-                    <p>Fecha límite: 17/06/2021</p>
-                </div>
-                <div class="task-card">
-                    <h3>Hacer ejercicios Hackerrank</h3>
-                    <p>Urgencia Moderada</p>
-                    <p>Responsable TODXS</p>
-                    <p>Fecha límite: 21/06/2021</p>
+    <div  style="height: 100vh">
+        <nav class="navbar navbar-dark bg-dark row pt-3 pl-5 pr-5 pb-3" id="nav">
+            <div class="col-sm-9">
+                <div class="row justify-content-start">
+                    <div class="col-sm-1">
+                        <img class="img-fluid p-1" src="./img/logo.jpg" style="width:75px;border-radius: 50%">
+                    </div>
+                    <div class="col-sm-4">
+                        <h1 class="text-light pt-3 font-weight-bold" id="titulo">Todo List</h1>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div id="task-card-list-done">
-            <h2>DONE</h2>
-            <div class="task-card-list">
-                <div class="task-card">
-                    <h3>Saltar la soga</h3>
-                    <p>Urgencia Baja</p>
-                    <p>Responsable Alejo</p>
-                    <p>Fecha límite: 16/06/2021</p>
+            <div class="col-sm-3">
+                <div class="row justify-content-end">
+                    <div class="col-sm-6">
+                        <input type="search" placeholder="Buscar tareas" class="form-control mr-sm-2">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="container" id="container">
+            <div class="row pt-3 justify-content-around">
+                <div class="col-md-4" id="task-card-form">
+                    <div class="card">
+                        <div class="card-header" id="task-title">
+                            <h2>Nueva tarea</h2>
+                        </div>
+                        <form class="card-body" id="task-form">
+                            <div class="form-group">
+                                <input class="form-control" id="name" name="name" type="text" placeholder="nombre tarea">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="responsable" name="responsable" type="text" placeholder="nombre responsable">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" id="deadline" name="deadline" type="date">
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" id="urgency" name="urgency">
+                                    <option value="low">Urgencia baja</option>
+                                    <option value="medium">Urgencia moderada</option>
+                                    <option value="high">Urgencia alta</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary btn-block" type="submit">Crear tarea</button>
+                        </form>
+                    </div>
+                </div>
+        
+                <div class="col-md-4" id="task-card-list-todo">
+                    <h2>TODO</h2>
+                    <div id="task-card-list">
+                        
+                    </div>
+                </div>
+        
+                <div class="col-md-4">
+                    <h2>DONE</h2>
+                    <div id="task-card-list-done">
+                        
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer id="footer">
-        <h4>Copyright Lucas Della Sala</h4>
-        <a href="https://www.linkedin.com/in/lucasdellasala/">Contactame</a>
-    </footer>
+    <script src="app.js" type="module"></script>
 </body>
 
 </html>
