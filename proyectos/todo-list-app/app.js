@@ -76,7 +76,6 @@ function UI() {
         document.getElementById("task-form").reset()
     }
 }
-
 //DOM EVENTS => Document Object Model Events
 document.getElementById("task-card-form")
         .addEventListener("submit", function (event) {
@@ -99,7 +98,6 @@ document.getElementById("task-card-form")
                 ui.resetForm()
             }
         })
-
 document.getElementById("task-card-list")
         .addEventListener("click", function(event){
             if(event.target.name==="finalize"){
@@ -109,7 +107,6 @@ document.getElementById("task-card-list")
                 ui.eliminarTarea(objetivo)
             }
         })
-
 document.getElementById("task-card-list-done")
         .addEventListener("click", function(event){
             if(event.target.name==="delete"){
@@ -118,3 +115,39 @@ document.getElementById("task-card-list-done")
                 ui.eliminarTarea(objetivo)
             }
         })
+
+async function getTodo(url) {
+    const todoResponse = await Promise.resolve(fetch(url))
+    const todoObj = await Promise.resolve(todoResponse.json())
+    //console.log({todoObj})
+    return todoObj
+}
+
+async function getSomeTodos(urlBase, start, end){
+    const todos = []
+    for(let i = start; i<end+1; i++){
+        const todo = await getTodo(urlBase+i)
+        todos.push(todo)
+    }
+    drawTasks(todos)
+}
+
+function drawTasks(listaTodos){
+    const ui = new UI()
+    listaTodos.map(task => {
+        const tarea = new Tarea(task.title,"Lucas","12/12/2012","low")
+
+        if(task.completed){
+            const objetivo = document.getElementById("task-card-list-done")
+            ui.agregarTarea(tarea, objetivo, "Eliminar")
+            //DIBUJAR UN DONE
+        } else {
+            const objetivo = document.getElementById("task-card-list")
+            ui.agregarTarea(tarea, objetivo, "Finalizar")
+            //DIBUJAR UN TODO
+        }
+    })
+}
+
+const url = "https://jsonplaceholder.typicode.com/todos/"
+getSomeTodos(url, 1, 5)
