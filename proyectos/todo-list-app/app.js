@@ -12,18 +12,19 @@ function UI() {
         const elementoTarea = document.createElement("div")
         let color;
 
-        if(tarea.urgencia==="high"){
+        if (tarea.urgencia === "high") {
             color = "danger"
-        } else if(tarea.urgencia==="medium"){
+        } else if (tarea.urgencia === "medium") {
             color = "warning"
         } else {
             color = "success"
         }
 
-        let colorBoton = "success";
-
-        if(tipo==="Eliminar"){
+        let colorBoton = "success"
+        let nameBoton = "finalize"
+        if (tipo === "Eliminar") {
             colorBoton = "danger"
+            nameBoton = "delete"
         }
 
         elementoTarea.innerHTML = `
@@ -35,7 +36,7 @@ function UI() {
                 <div class="card-body">
                     <p>Responsable ${tarea.responsable}</p>
                     <p>Fecha límite: ${tarea.deadline}</p>
-                    <button name="finalize" class="btn btn-${colorBoton} btn-block">${tipo}</button>
+                    <button name="${nameBoton}" class="btn btn-${colorBoton} btn-block">${tipo}</button>
                 </div>
             </div>`
 
@@ -54,9 +55,9 @@ function UI() {
         responsable = responsable.split(" ")[1]
         deadline = deadline.split(" ")[2]
 
-        if(classCirculo==="danger"){
+        if (classCirculo === "danger") {
             classCirculo = "high"
-        } else if(classCirculo==="warning"){
+        } else if (classCirculo === "warning") {
             classCirculo = "medium"
         } else {
             classCirculo = "low"
@@ -79,42 +80,85 @@ function UI() {
 
 //DOM EVENTS => Document Object Model Events
 document.getElementById("task-card-form")
-        .addEventListener("submit", function (event) {
-            event.preventDefault();
-            //Crear la tarea
-            const nombre = document.getElementById("name").value
-            const responsable = document.getElementById("responsable").value
-            const deadline = document.getElementById("deadline").value
-            const urgencia = document.getElementById("urgency").value
+    .addEventListener("submit", function (event) {
+        event.preventDefault();
+        //Crear la tarea
+        const nombre = document.getElementById("name").value
+        const responsable = document.getElementById("responsable").value
+        const deadline = document.getElementById("deadline").value
+        const urgencia = document.getElementById("urgency").value
 
-            if (nombre === "" || responsable === "" || deadline === "") {
-                alert("Debes completar todos los campos")
-            } else {
-                const tarea = new Tarea(nombre, responsable, deadline, urgencia)
+        if (nombre === "" || responsable === "" || deadline === "") {
+            alert("Debes completar todos los campos")
+        } else {
+            const tarea = new Tarea(nombre, responsable, deadline, urgencia)
 
-                const ui = new UI()
-                const listaDeTareas = document.getElementById("task-card-list")
+            const ui = new UI()
+            const listaDeTareas = document.getElementById("task-card-list")
 
-                ui.agregarTarea(tarea, listaDeTareas, "Finalizar")
-                ui.resetForm()
-            }
-        })
+            ui.agregarTarea(tarea, listaDeTareas, "Finalizar")
+            ui.resetForm()
+        }
+    })
 
 document.getElementById("task-card-list")
-        .addEventListener("click", function(event){
-            if(event.target.name==="finalize"){
-                const ui = new UI()
-                const objetivo = event.target
-                ui.finalizarTarea(objetivo)
-                ui.eliminarTarea(objetivo)
-            }
-        })
+    .addEventListener("click", function (event) {
+        if (event.target.name === "finalize") {
+            const ui = new UI()
+            const objetivo = event.target
+            ui.finalizarTarea(objetivo)
+            ui.eliminarTarea(objetivo)
+        }
+    })
 
 document.getElementById("task-card-list-done")
-        .addEventListener("click", function(event){
-            if(event.target.name==="delete"){
-                const ui = new UI()
-                const objetivo = event.target
-                ui.eliminarTarea(objetivo)
-            }
-        })
+    .addEventListener("click", function (event) {
+        console.log("CLICK")
+        console.log(event.target)
+        if (event.target.name === "delete") {
+            const ui = new UI()
+            const objetivo = event.target
+            ui.eliminarTarea(objetivo)
+        }
+    })
+
+function drawTask(task) {
+    const ui = new UI()
+
+    const tarea = new Tarea(task.title, "Lucas", "12/12/2012", "low")
+    if (task.completed) {
+        const objetivo = document.getElementById("task-card-list-done")
+        ui.agregarTarea(tarea, objetivo, "Eliminar")
+        //DIBUJAR UN DONE
+    } else {
+        const objetivo = document.getElementById("task-card-list")
+        ui.agregarTarea(tarea, objetivo, "Finalizar")
+        //DIBUJAR UN TODO
+    }
+}
+
+async function getTodo(url) {
+    const todoResponse = await Promise.resolve(fetch(url))
+    const todoObj = await Promise.resolve(todoResponse.json())
+    return todoObj
+}
+
+async function getSomeTodos(urlBase, start, end) {
+    const objetivo = document.getElementById("container")
+    const loadingElement = document.createElement("div")
+    loadingElement.innerHTML = `<div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>`
+    loadingElement.id = "loading"
+    objetivo.prepend(loadingElement)
+
+    for (let i = start; i <= end; i++) {
+        const todo = await getTodo(urlBase + i)
+        drawTask(todo)
+    }
+    document.getElementById("loading").remove()
+
+}
+
+const url = "https://jsonplaceholder.typicode.com/todos/"
+getSomeTodos(url, 1, 100)
