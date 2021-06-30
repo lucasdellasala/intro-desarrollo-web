@@ -125,7 +125,7 @@ document.getElementById("task-card-list-done")
 function drawTask(task) {
     const ui = new UI()
 
-    const tarea = new Tarea(task.title, "Lucas", "12/12/2012", "low")
+    const tarea = new Tarea(task.title, task.responsable, task.deadline, task.urgency)
     if (task.completed) {
         const objetivo = document.getElementById("task-card-list-done")
         ui.agregarTarea(tarea, objetivo, "Eliminar")
@@ -160,5 +160,7 @@ async function getSomeTodos(urlBase, start, end) {
 
 }
 
-const url = "https://jsonplaceholder.typicode.com/todos/"
-getSomeTodos(url, 1, 100)
+const url = "http://localhost:5000/"
+getSomeTodos(url, 1, 5)
+
+
