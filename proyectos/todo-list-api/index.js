@@ -1,11 +1,12 @@
 import Express from 'express'
 import Bd from './bd.js'
-import bodyParser from 'body-parser'
+import cors from 'cors'
 
 //Settings
 const PORT = 5000
 const app = Express()
 
+app.use(cors())
 app.use(Express.json())
 
 app.get("/", (request, response)=>{
@@ -39,7 +40,9 @@ app.post("/add", (request, response)=>{
         return Object.keys(obj).length === 0;
     }
 
-    if(isEmpty(!request.body)){
+    console.log(request.body)
+
+    if(isEmpty(request.body)){
         response.status(400).json({"message":"Debes enviar un body."})
     }
     if(request.body.title == "" || request.body.responsable == ""){
