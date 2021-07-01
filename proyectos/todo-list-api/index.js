@@ -26,7 +26,7 @@ app.get("/:id",(request, response)=>{
     const todoSolicitado = Bd.find((todo)=>todo.id == idSolicitado)
     if(!todoSolicitado){
         response.status(404).json({
-            "status-code": 404,
+            "statusCode": 404,
             "message": "El id solicitado no existe"
         })
     }
@@ -35,6 +35,13 @@ app.get("/:id",(request, response)=>{
 
 app.post("/add", (request, response)=>{
     //Validamos campos obligatorios
+    function isEmpty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+
+    if(isEmpty(!request.body)){
+        response.status(400).json({"message":"Debes enviar un body."})
+    }
     if(request.body.title == "" || request.body.responsable == ""){
         response.status(400).json({"message":"Debes ingresar obligatoriamente title y responsable."})
     }
@@ -91,7 +98,7 @@ app.put("/update/:id",(request, response)=>{
 
     if(!todoSolicitado){
         response.status(404).json({
-            "status-code": 404,
+            "statusCode": 404,
             "message": "El id solicitado no existe"
         })
     }
@@ -113,7 +120,7 @@ app.delete("/:id",(request, response)=>{
 
     if(!todoSolicitado){
         response.status(404).json({
-            "status-code": 404,
+            "statusCode": 404,
             "message": "El id solicitado no existe"
         })
     }

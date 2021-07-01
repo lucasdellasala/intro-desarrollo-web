@@ -1,6 +1,7 @@
 //OBJETOS
 //Tarea
-function Tarea(nombre, responsable, deadline, urgencia) {
+function Tarea(id, nombre, responsable, deadline, urgencia) {
+    this.id = id;
     this.nombre = nombre;
     this.responsable = responsable;
     this.deadline = deadline;
@@ -32,6 +33,7 @@ function UI() {
                 <div class="card-header">           
                     <h3>${tarea.nombre}</h3>
                     <div class="btn-${color}" style="border-radius: 50%; width:10px; height:10px;"></div>
+                    <p style="display: none">Id: ${tarea.id}</p>
                 </div>
                 <div class="card-body">
                     <p>Responsable ${tarea.responsable}</p>
@@ -42,7 +44,7 @@ function UI() {
 
         objetivo.prepend(elementoTarea)
     };
-    this.finalizarTarea = function (botonObjetivo) {
+    this.finalizarTarea = function (botonObjetivo, id) {
         const cardHeader = botonObjetivo.parentElement.parentElement.getElementsByClassName("card-header")[0]
         const titulo = cardHeader.getElementsByTagName("h3")[0].innerText
         let classCirculo = cardHeader.getElementsByTagName("div")[0].className
@@ -63,7 +65,7 @@ function UI() {
             classCirculo = "low"
         }
 
-        const tarea = new Tarea(titulo, responsable, deadline, classCirculo)
+        const tarea = new Tarea(id, titulo, responsable, deadline, classCirculo)
 
         console.log(tarea)
         const objetivo = document.getElementById("task-card-list-done")
@@ -95,37 +97,65 @@ document.getElementById("task-card-form")
 
             const ui = new UI()
             const listaDeTareas = document.getElementById("task-card-list")
+            /*const body = {
+                title: tarea.nombre,
+                responsable: tarea.responsable,
+                deadline: tarea.deadline,
+                urgency: tarea.urgencia
+            }*/
+            //HACER UN POST EN LA API (http://localhost:5000/add) + body
+           // postTodo(url, body).then((res)=>{
+            //    console.log(res.status)
+            //    if(res.status<400){
+                    ui.agregarTarea(tarea, listaDeTareas, "Finalizar")
+                    ui.resetForm()
+            //    } else {
+            //        alert("Ha ocurrido un error :(")
+            //    }
+            //})
 
-            ui.agregarTarea(tarea, listaDeTareas, "Finalizar")
-            ui.resetForm()
         }
     })
 
 document.getElementById("task-card-list")
     .addEventListener("click", function (event) {
+        //console.log(event.target)
         if (event.target.name === "finalize") {
             const ui = new UI()
             const objetivo = event.target
-            ui.finalizarTarea(objetivo)
+            const cardHeader = objetivo.parentElement.parentElement.getElementsByClassName("card-header")[0]
+            const id = cardHeader.getElementsByTagName("p")[0].innerText.split(" ")[1]
+
+            ui.finalizarTarea(objetivo, id)
             ui.eliminarTarea(objetivo)
+
+
+            const urlUpdate = url + "update/" + id
+            console.log(urlUpdate)
+            updateTask(urlUpdate)
         }
     })
 
 document.getElementById("task-card-list-done")
     .addEventListener("click", function (event) {
-        console.log("CLICK")
-        console.log(event.target)
         if (event.target.name === "delete") {
             const ui = new UI()
             const objetivo = event.target
+            const cardHeader = objetivo.parentElement.parentElement.getElementsByClassName("card-header")[0]
+            const id = cardHeader.getElementsByTagName("p")[0].innerText.split(" ")[1]
+
             ui.eliminarTarea(objetivo)
+
+            const urlDelete = url + id
+            console.log(urlDelete)
+            deleteTask(urlDelete)
         }
     })
 
 function drawTask(task) {
     const ui = new UI()
 
-    const tarea = new Tarea(task.title, task.responsable, task.deadline, task.urgency)
+    const tarea = new Tarea(task.id, task.title, task.responsable, task.deadline, task.urgency)
     if (task.completed) {
         const objetivo = document.getElementById("task-card-list-done")
         ui.agregarTarea(tarea, objetivo, "Eliminar")
@@ -135,6 +165,36 @@ function drawTask(task) {
         ui.agregarTarea(tarea, objetivo, "Finalizar")
         //DIBUJAR UN TODO
     }
+}
+/*
+async function postTodo(urlBase, body) {
+    const strBody = JSON.stringify(body)
+    console.log(strBody)
+    const url = urlBase + 'add'
+    const createTodoResponse = await Promise.resolve(fetch(url, 
+                                                    {
+                                                        method: "POST", 
+                                                        body: strBody,
+                                                        headers:{
+                                                            'Accept': 'application/json',
+                                                            'Content-Type': 'application/json'
+                                                        },
+                                                        mode: 'no-cors'
+                                                    }))
+    const createTodoResponseObj = await Promise.resolve(createTodoResponse.json())
+    return createTodoResponseObj
+}*/
+
+async function deleteTask(url) {
+    const deleteTodoResponse = await Promise.resolve(fetch(url, {method: "DELETE"}))
+    const ok = await Promise.resolve(deleteTodoResponse.json())
+    return ok
+}
+
+async function updateTask(url) {
+    const updateTodoResponse = await Promise.resolve(fetch(url, {method: "PUT"}))
+    const ok = await Promise.resolve(updateTodoResponse.json())
+    return ok
 }
 
 async function getTodo(url) {
@@ -154,6 +214,10 @@ async function getSomeTodos(urlBase, start, end) {
 
     for (let i = start; i <= end; i++) {
         const todo = await getTodo(urlBase + i)
+        if(todo.statusCode>399){
+            //console.log("No hacer nada " + i)
+            continue
+        }
         drawTask(todo)
     }
     document.getElementById("loading").remove()
@@ -161,6 +225,4 @@ async function getSomeTodos(urlBase, start, end) {
 }
 
 const url = "http://localhost:5000/"
-getSomeTodos(url, 1, 5)
-
-
+getSomeTodos(url, 1, 20)
