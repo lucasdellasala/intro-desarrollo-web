@@ -82,7 +82,7 @@ function UI() {
 
 //DOM EVENTS => Document Object Model Events
 document.getElementById("task-card-form")
-    .addEventListener("submit", function (event) {
+    .addEventListener("submit", async function (event) {
         event.preventDefault();
         //Crear la tarea
         const nombre = document.getElementById("name").value
@@ -94,7 +94,7 @@ document.getElementById("task-card-form")
             alert("Debes completar todos los campos")
         } else {
 
-            const id = 3
+            const id = await getMinId()
             const tarea = new Tarea(id, nombre, responsable, deadline, urgencia)
 
             const ui = new UI()
@@ -159,19 +159,28 @@ function drawTask(task) {
 }
 
 async function postTask(bodyTask) {
-    const postTodoResponse = await Promise.resolve(fetch(url+'add', {method: "POST", body: JSON.stringify(bodyTask)}))
+    const postTodoResponse = await Promise.resolve(
+        fetch(url + 'add', {
+            method: "POST",
+            mode: "cors",
+            headers: new Headers({
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            }),
+            body: JSON.stringify(bodyTask)
+        }))
     const ok = await Promise.resolve(postTodoResponse.json())
     return ok
 }
 
 async function updateTask(url) {
-    const updateTodoResponse = await Promise.resolve(fetch(url, {method: "PUT"}))
+    const updateTodoResponse = await Promise.resolve(fetch(url, { method: "PUT" }))
     const ok = await Promise.resolve(updateTodoResponse.json())
     return ok
 }
 
 async function deleteTask(url) {
-    const deleteTodoResponse = await Promise.resolve(fetch(url, {method: "DELETE"}))
+    const deleteTodoResponse = await Promise.resolve(fetch(url, { method: "DELETE" }))
     const ok = await Promise.resolve(deleteTodoResponse.json())
     return ok
 }
@@ -180,6 +189,12 @@ async function getTodo(url) {
     const todoResponse = await Promise.resolve(fetch(url))
     const todoObj = await Promise.resolve(todoResponse.json())
     return todoObj
+}
+
+async function getMinId() {
+    const minIdResponse = await Promise.resolve(fetch(url+'minid'))
+    const minIdObj = await Promise.resolve(minIdResponse.json())
+    return minIdObj.minIdPossible
 }
 
 async function getSomeTodos(urlBase, start, end) {
@@ -193,7 +208,7 @@ async function getSomeTodos(urlBase, start, end) {
 
     for (let i = start; i <= end; i++) {
         const todo = await getTodo(urlBase + i)
-        if(todo.statusCode > 399){
+        if (todo.statusCode > 399) {
             continue
         }
         drawTask(todo)
@@ -203,6 +218,6 @@ async function getSomeTodos(urlBase, start, end) {
 }
 
 const url = "http://localhost:5000/"
-getSomeTodos(url, 1, 20)
+getSomeTodos(url, 0, 20)
 
 

@@ -31,6 +31,24 @@ app.get("/", (request, response) => {
     }
 })
 
+app.get("/minid", (request, response) => {
+    let minIdPossible = 0
+    for (let i = 0; i < Bd.length; i++) {
+        const comparator = i
+        if (comparator == Bd.length) {
+            break
+        }
+        if (comparator != Bd[i].id) {
+            minIdPossible = comparator
+            break
+        } else {
+            minIdPossible = Bd.length
+        }
+    }
+
+    response.status(200).json({"minIdPossible":minIdPossible})
+})
+
 app.get("/:id", (request, response) => {
     const idSolicitado = parseInt(request.params.id)
 
@@ -69,13 +87,15 @@ app.post("/add", (request, response) => {
 
     let minIdPossible = 0
     for (let i = 0; i < Bd.length; i++) {
-        const comparator = i + 1
+        const comparator = i
         if (comparator == Bd.length) {
-            minIdPossible = Bd.length + 1
+            break
         }
         if (comparator != Bd[i].id) {
             minIdPossible = comparator
             break
+        } else {
+            minIdPossible = Bd.length
         }
     }
     const title = request.body.title
